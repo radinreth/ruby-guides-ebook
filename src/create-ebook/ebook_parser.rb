@@ -123,6 +123,10 @@ class EbookParser
     return write process_info node if node.name == 'div' && node.attr(:class) == 'info'
     return write process_warning node if node.name == 'div' && node.attr(:class) == 'warning'
 
+    # table
+    return write process_table node if node.name == 'table'
+
+
     # node.children.each do |child|
     #   traverse_each child
     # end
@@ -180,8 +184,32 @@ class EbookParser
     "**Warning:** #{content}\n\n"
   end
 
+  def process_table node
+    ths = node.css('thead').css('th')
+
+    result = "|"
+    ths.each do |th|
+      result += " #{th.text} |"
+    end
+    result += "\n"
+
+    trs = node.css('tbody').css('tr')
+    trs.each do |tr|
+      result += '|'
+      tr.css('td').each do |td|
+        result += " #{td.text} |"
+      end
+      result += "\n"
+    end
+    result += "\n"
+
+    #puts result
+
+    result
+  end
+
   def write text
-    puts text
+    #puts text
     @f.write text
   end
 end
