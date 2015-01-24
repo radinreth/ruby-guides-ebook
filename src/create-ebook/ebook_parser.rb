@@ -7,13 +7,12 @@ class EbookParser
 
   def initialize(url)
     @url = url
-
     @page = Nokogiri::HTML(open(url))
   end
 
   def create_file name
     @f = File.new(name.gsub(' ', '_').downcase + '.md', 'w+')
-    @f.write "Autocreated at #{Time.now.to_s}\n\n"
+    write "Autocreated at #{Time.now.to_s}\n\n"
   end
 
   def get_title
@@ -23,16 +22,16 @@ class EbookParser
   def make_header
     feature = @page.css('div#feature')[0].css('.wrapper')
 
-    @f.write "# #{get_title}\n\n"
-    @f.write feature.css('p')[0].text + "\n"
-    @f.write feature.css('p')[1].text + "\n\n"
+    write "# #{get_title}\n\n"
+    write feature.css('p')[0].text + "\n"
+    write feature.css('p')[1].text + "\n\n"
 
     lis = feature.css('ul')[0].css('li')
     lis.each do |li|
-      @f.write "+ #{li.text}\n"
+      write "+ #{li.text}\n"
     end
 
-    @f.write "\n\n"
+    write "\n\n"
   end
 
   def make_body
@@ -107,22 +106,22 @@ class EbookParser
     # puts node.name
 
     # headers
-    return @f.write("# #{process_text node}\n\n") if node.name == 'h3'
-    return @f.write("##  #{process_text node}\n\n") if node.name == 'h4'
-    return @f.write("###  #{process_text node}\n\n") if node.name == 'h5'
-    return @f.write("####  #{process_text node}\n\n") if node.name == 'h6'
+    return write("# #{process_text node}\n\n") if node.name == 'h3'
+    return write("##  #{process_text node}\n\n") if node.name == 'h4'
+    return write("###  #{process_text node}\n\n") if node.name == 'h5'
+    return write("####  #{process_text node}\n\n") if node.name == 'h6'
 
-    return @f.write("#{process_text node}\n\n") if node.name == 'p'
+    return write("#{process_text node}\n\n") if node.name == 'p'
 
     # lists
     return process_ul node if node.name == 'ul'
 
     # ruby code
-    return process_code node if node.name == 'div' && node.attr(:class) == 'code_container'
+    return write process_code node if node.name == 'div' && node.attr(:class) == 'code_container'
 
-    return process_note node if node.name == 'div' && node.attr(:class) == 'note'
-    return process_info node if node.name == 'div' && node.attr(:class) == 'info'
-    return process_warning node if node.name == 'div' && node.attr(:class) == 'warning'
+    return write process_note node if node.name == 'div' && node.attr(:class) == 'note'
+    return write process_info node if node.name == 'div' && node.attr(:class) == 'info'
+    return write process_warning node if node.name == 'div' && node.attr(:class) == 'warning'
 
     # node.children.each do |child|
     #   traverse_each child
@@ -131,10 +130,10 @@ class EbookParser
 
   def process_ul ul
     ul.css('li').each do |li|
-      @f.write("+ #{process_text li}\n")
+      write("+ #{process_text li}\n")
     end
 
-    @f.write "\n"
+    write "\n"
   end
 
   def process_text txt
@@ -146,6 +145,12 @@ class EbookParser
       result += child.text if child.name == 'text'
       result += "*#{child.text}*" if child.name == 'code'
       result += "[#{child.text.strip}](#{child.attr(:href)})" if child.name == 'a'
+
+      result += "#{process_text child}\n\n" if child.name == 'p'
+      # result += "#{process_code child}\n\n" if child.name == 'div' && child.attr(:class) == 'code_container'
+      if child.name == 'div' && child.attr(:class) == 'code_container'
+        result += "#{process_code child}\n\n"
+      end
     end
 
     result.strip
@@ -153,24 +158,30 @@ class EbookParser
 
   def process_code node
     content = node.text.strip
-    @f.write "```ruby\n#{content}\n```\n\n"
+
+    "```ruby\n#{content}\n```\n\n"
   end
 
   def process_note node
     content = process_text node.css('p')
 
-    @f.write "**Note:** #{content}\n\n"
+    "**Note:** #{content}\n\n"
   end
 
   def process_info node
     content = process_text node.css('p')
 
-    @f.write "**Info:** #{content}\n\n"
+    "**Info:** #{content}\n\n"
   end
 
   def process_warning node
     content = process_text node.css('p')
 
-    @f.write "**Warning:** #{content}\n\n"
+    "**Warning:** #{content}\n\n"
+  end
+
+  def write text
+    puts text
+    @f.write text
   end
 end
