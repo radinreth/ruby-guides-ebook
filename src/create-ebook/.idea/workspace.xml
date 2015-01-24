@@ -15,7 +15,8 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/create-ebook@run.coverage" NAME="run Coverage Results" MODIFIED="1422088221926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="create-ebook" />
+    <SUITE FILE_PATH="coverage/create-ebook@run.coverage" NAME="run Coverage Results" MODIFIED="1422092320081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="create-ebook" />
+    <SUITE FILE_PATH="coverage/create-ebook@test.coverage" NAME="test Coverage Results" MODIFIED="1422090575056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="create-ebook" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -28,17 +29,38 @@
     <favorites_list name="create-ebook" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61404836">
+    <splitter split-orientation="horizontal" split-proportion="0.4599698">
       <split-first>
         <leaf>
           <file leaf-file-name="ebook_parser.rb" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ebook_parser.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7383721" vertical-offset="1561" max-vertical-offset="1965">
-                  <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
+                <state vertical-scroll-proportion="0.7461929" vertical-offset="1296" max-vertical-offset="1980">
+                  <caret line="155" column="43" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
                   <folding>
-                    <element signature="e#1003#1954#0" expanded="false" />
+                    <element signature="e#833#874#0" expanded="false" />
+                    <element signature="e#1020#1971#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="create_ebook.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/create_ebook.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+                  <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ebook_parser_test.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ebook_parser_test.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+                  <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -50,8 +72,8 @@
           <file leaf-file-name="layouts_and_rendering_in_rails.md" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/layouts_and_rendering_in_rails.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.39184952" vertical-offset="3280" max-vertical-offset="17355">
-                  <caret line="227" column="9" selection-start-line="227" selection-start-column="9" selection-end-line="227" selection-end-column="9" />
+                <state vertical-scroll-proportion="1.2845528" vertical-offset="15471" max-vertical-offset="16155">
+                  <caret line="1063" column="21" selection-start-line="1063" selection-start-column="21" selection-end-line="1063" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -66,8 +88,10 @@
       <list>
         <option value="$PROJECT_DIR$/ebook.md" />
         <option value="$PROJECT_DIR$/.idea/e_book_parser.rb" />
-        <option value="$PROJECT_DIR$/create_ebook.rb" />
         <option value="$PROJECT_DIR$/layouts_and_rendering_in_rails.md" />
+        <option value="$PROJECT_DIR$/test/ebook_parser_test.rb" />
+        <option value="$PROJECT_DIR$/ebook_parser_test.rb" />
+        <option value="$PROJECT_DIR$/create_ebook.rb" />
         <option value="$PROJECT_DIR$/ebook_parser.rb" />
       </list>
     </option>
@@ -140,16 +164,21 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/ebook_parser_test.rb" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="editorconfig.notification" value="Applied .editorconfig settings" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="options.lastSelected" value="tasks" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Ruby.run">
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -281,6 +310,38 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -314,6 +375,34 @@
       <option name="screenWidth" value="0" />
       <option name="url" value="http://" />
       <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -391,8 +480,31 @@
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="test" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="create-ebook" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="ruby-2.0.0-p353" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/ebook_parser_test.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Ruby.run" />
+      <item index="1" class="java.lang.String" itemvalue="Ruby.test" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -416,12 +528,12 @@
       <workItem from="1422044186206" duration="53000" />
       <workItem from="1422044608480" duration="136000" />
       <workItem from="1422045486169" duration="1220000" />
-      <workItem from="1422085140884" duration="3265000" />
+      <workItem from="1422085140884" duration="6123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22439000" />
+    <option name="totallyTimeSpent" value="25297000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -455,7 +567,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34246576" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25684932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -493,13 +605,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/ebook_parser.rb</url>
-          <line>162</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager>
@@ -514,7 +619,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="2595">
           <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -532,7 +638,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2415" max-vertical-offset="2595">
           <caret line="161" column="42" selection-start-line="151" selection-start-column="0" selection-end-line="161" selection-end-column="42" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -550,7 +657,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2265" max-vertical-offset="2595">
           <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -568,7 +676,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2028" max-vertical-offset="2595">
           <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,7 +695,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2028" max-vertical-offset="2595">
           <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -604,7 +714,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2028" max-vertical-offset="2595">
           <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -622,7 +733,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2134" max-vertical-offset="2595">
           <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -640,7 +752,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2028" max-vertical-offset="2595">
           <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,7 +771,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2227" max-vertical-offset="2595">
           <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -676,7 +790,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2227" max-vertical-offset="2595">
           <caret line="143" column="7" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="7" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -694,7 +809,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="2595">
           <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -712,7 +828,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="2595">
           <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -730,7 +847,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2048" max-vertical-offset="2595">
           <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -748,7 +866,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="2340">
           <caret line="117" column="51" selection-start-line="117" selection-start-column="51" selection-end-line="117" selection-end-column="51" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,27 +889,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create_ebook.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46089387" vertical-offset="0" max-vertical-offset="358">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebook_parser_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts_and_rendering_in_rails.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2845528" vertical-offset="15471" max-vertical-offset="16155">
+          <caret line="1063" column="21" selection-start-line="1063" selection-start-column="21" selection-end-line="1063" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ebook_parser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7383721" vertical-offset="1561" max-vertical-offset="1965">
-          <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.7461929" vertical-offset="1296" max-vertical-offset="1980">
+          <caret line="155" column="43" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
           <folding>
-            <element signature="e#1003#1954#0" expanded="false" />
+            <element signature="e#833#874#0" expanded="false" />
+            <element signature="e#1020#1971#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layouts_and_rendering_in_rails.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39184952" vertical-offset="3280" max-vertical-offset="17355">
-          <caret line="227" column="9" selection-start-line="227" selection-start-column="9" selection-end-line="227" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -3,16 +3,18 @@ require 'nokogiri'
 require 'open-uri'
 
 class EbookParser
-   attr_reader :url
+  attr_reader :url
 
-   def initialize(url)
-     @url = url
+  def initialize(url)
+    @url = url
 
-     @page = Nokogiri::HTML(open(url))
+    @page = Nokogiri::HTML(open(url))
+  end
 
-     @f = File.new(get_title.gsub(' ', '_').downcase + '.md', 'w+')
-     @f.write "Autocreated at #{Time.now.to_s}\n\n"
-   end
+  def create_file name
+    @f = File.new(name.gsub(' ', '_').downcase + '.md', 'w+')
+    @f.write "Autocreated at #{Time.now.to_s}\n\n"
+  end
 
   def get_title
     @page.css('div#feature')[0].css('.wrapper').css('h2').text
@@ -105,10 +107,10 @@ class EbookParser
     # puts node.name
 
     # headers
-    return @f.write("# #{node.text}\n\n") if node.name == 'h3'
-    return @f.write("##  #{node.text}\n\n") if node.name == 'h4'
-    return @f.write("###  #{node.text}\n\n") if node.name == 'h5'
-    return @f.write("####  #{node.text}\n\n") if node.name == 'h6'
+    return @f.write("# #{process_text node}\n\n") if node.name == 'h3'
+    return @f.write("##  #{process_text node}\n\n") if node.name == 'h4'
+    return @f.write("###  #{process_text node}\n\n") if node.name == 'h5'
+    return @f.write("####  #{process_text node}\n\n") if node.name == 'h6'
 
     return @f.write("#{process_text node}\n\n") if node.name == 'p'
 
@@ -143,9 +145,10 @@ class EbookParser
     txt.children.each do |child|
       result += child.text if child.name == 'text'
       result += "*#{child.text}*" if child.name == 'code'
+      result += "[#{child.text.strip}](#{child.attr(:href)})" if child.name == 'a'
     end
 
-    result
+    result.strip
   end
 
   def process_code node

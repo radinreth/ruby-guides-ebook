@@ -1,4 +1,4 @@
-Autocreated at 2015-01-24 11:30:23 +0300
+Autocreated at 2015-01-24 12:38:40 +0300
 
 # Layouts and Rendering in Rails
 
@@ -92,8 +92,7 @@ If we want to display the properties of all the books in our view, we can do so 
 
 **Note:** The actual rendering is done by subclasses of *ActionView::TemplateHandlers*. This guide does not dig into that process, but it's important to know that the file extension on your view controls the choice of template handler. Beginning with Rails 2, the standard extensions are *.erb* for ERB (HTML with embedded Ruby), and *.builder* for Builder (XML generator).
 
-##  2.2 Using render
-
+##  2.2 Using *render*
 
 In most cases, the *ActionController::Base#render* method does the heavy lifting of rendering your application's content for use by a browser. There are a variety of ways to customize the behavior of *render*. You can render the default view for a Rails template, or a specific template, or a file, or inline code, or nothing at all. You can render text, JSON, or XML. You can specify the content type or HTTP status of the rendered response as well.
 
@@ -216,8 +215,7 @@ render file: "/path/to/rails/app/views/books/edit.html.erb"
 
 Which one you use is really a matter of style and convention, but the rule of thumb is to use the simplest one that makes sense for the code you are writing.
 
-###  2.2.6 Using render with :inline
-
+###  2.2.6 Using *render* with *:inline*
 
 The *render* method can do without a view completely, if you're willing to use the *:inline* option to supply ERB as part of the method call. This is perfectly valid:
 
@@ -311,8 +309,7 @@ time.
 **Note:** Unless overridden, your response returned from this render option will be
 *text/html*, as that is the default content type of Action Dispatch response.
 
-###  2.2.13 Options for render
-
+###  2.2.13 Options for *render*
 
 Calls to the *render* method generally accept four options:
 
@@ -321,7 +318,7 @@ Calls to the *render* method generally accept four options:
 + *:location*
 + *:status*
 
-####  2.2.13.1 The :content_type Option
+####  2.2.13.1 The *:content_type* Option
 
 By default, Rails will serve the results of a rendering operation with the MIME content-type of *text/html* (or *application/json* if you use the *:json* option, or *application/xml* for the *:xml* option.). There are times when you might like to change this, and you can do so by setting the *:content_type* option:
 
@@ -329,7 +326,7 @@ By default, Rails will serve the results of a rendering operation with the MIME 
 render file: filename, content_type: "application/rss"
 ```
 
-####  2.2.13.2 The :layout Option
+####  2.2.13.2 The *:layout* Option
 
 With most of the options to *render*, the rendered content is displayed as part of the current layout. You'll learn more about layouts and how to use them later in this guide.
 
@@ -345,7 +342,7 @@ You can also tell Rails to render with no layout at all:
 render layout: false
 ```
 
-####  2.2.13.3 The :location Option
+####  2.2.13.3 The *:location* Option
 
 You can use the *:location* option to set the HTTP *Location* header:
 
@@ -353,7 +350,7 @@ You can use the *:location* option to set the HTTP *Location* header:
 render xml: photo, location: photo_url(photo)
 ```
 
-####  2.2.13.4 The :status Option
+####  2.2.13.4 The *:status* Option
 
 Rails will automatically generate a response with the correct HTTP status code (in most cases, this is *200 OK*). You can use the *:status* option to change this:
 
@@ -439,33 +436,17 @@ With this declaration, the *product* layout would be used for everything but the
 Layout declarations cascade downward in the hierarchy, and more specific layout declarations always override more general ones. For example:
 
 + 
-
-
-
 + 
-
-
-
 + 
-
-
-
 + 
-
-
-
 
 In this application:
 
 + In general, views will be rendered in the *main* layout
-+ 
-*ArticlesController#index* will use the *main* layout
-+ 
-*SpecialArticlesController#index* will use the *special* layout
-+ 
-*OldArticlesController#show* will use no layout at all
-+ 
-*OldArticlesController#index* will use the *old* layout
++ *ArticlesController#index* will use the *main* layout
++ *SpecialArticlesController#index* will use the *special* layout
++ *OldArticlesController#show* will use no layout at all
++ *OldArticlesController#index* will use the *old* layout
 
 ###  2.2.15 Avoiding Double Render Errors
 
@@ -510,8 +491,7 @@ end
 
 This will render a book with *special?* set with the *special_show* template, while other books will render with the default *show* template.
 
-##  2.3 Using redirect_to
-
+##  2.3 Using *redirect_to*
 
 Another way to handle returning responses to an HTTP request is with *redirect_to*. As you've seen, *render* tells Rails which view (or other asset) to use in constructing a response. The *redirect_to* method does something completely different: it tells the browser to send a new request for a different URL. For example, you could redirect from wherever you are in your code to the index of photos in your application with this call:
 
@@ -535,8 +515,7 @@ redirect_to photos_path, status: 301
 
 Just like the *:status* option for *render*, *:status* for *redirect_to* accepts both numeric and symbolic header designations.
 
-###  2.3.2 The Difference Between render and redirect_to
-
+###  2.3.2 The Difference Between *render* and *redirect_to*
 
 Sometimes inexperienced developers think of *redirect_to* as a sort of *goto* command, moving execution from one place to another in your Rails code. This is  correct. Your code stops running and waits for a new request for the browser. It just happens that you've told the browser what request it should make next, by sending back an HTTP 302 status code.
 
@@ -593,9 +572,9 @@ end
 
 This would detect that there are no books with the specified ID, populate the *@books* instance variable with all the books in the model, and then directly render the *index.html.erb* template, returning it to the browser with a flash alert message to tell the user what happened.
 
-##  2.4 Using head To Build Header-Only Responses
+##  2.4 Using *head* To Build Header-Only Responses
 
-The *head* method can be used to send responses with only headers to the browser. It provides a more obvious alternative to calling *render :nothing*. The *head* method accepts a number or symbol (see ) representing a HTTP status code. The options argument is interpreted as a hash of header names and values. For example, you can return only an error header:
+The *head* method can be used to send responses with only headers to the browser. It provides a more obvious alternative to calling *render :nothing*. The *head* method accepts a number or symbol (see [reference table](#the-status-option)) representing a HTTP status code. The options argument is interpreted as a hash of header names and values. For example, you can return only an error header:
 
 ```ruby
 head :bad_request
@@ -639,9 +618,7 @@ Cache-Control: no-cache
 When Rails renders a view as a response, it does so by combining the view with the current layout, using the rules for finding the current layout that were covered earlier in this guide. Within a layout, you have access to three tools for combining different bits of output to form the overall response:
 
 + Asset tags
-+ 
-*yield* and *content_for*
-
++ *yield* and *content_for*
 + Partials
 
 ##  3.1 Asset Tag Helpers
@@ -659,8 +636,7 @@ You can use these tags in layouts or other views, although the *auto_discovery_l
 
 **Warning:** The asset tag helpers do  verify the existence of the assets at the specified locations; they simply assume that you know what you're doing and generate the link.
 
-###  3.1.1 Linking to Feeds with the auto_discovery_link_tag
-
+###  3.1.1 Linking to Feeds with the *auto_discovery_link_tag*
 
 The *auto_discovery_link_tag* helper builds HTML that most browsers and feed readers can use to detect the presence of RSS or Atom feeds. It takes the type of the link (*:rss* or *:atom*), a hash of options that are passed through to url_for, and a hash of options for the tag:
 
@@ -671,21 +647,17 @@ The *auto_discovery_link_tag* helper builds HTML that most browsers and feed rea
 
 There are three tag options available for the *auto_discovery_link_tag*:
 
-+ 
-*:rel* specifies the *rel* value in the link. The default value is "alternate".
-+ 
-*:type* specifies an explicit MIME type. Rails will generate an appropriate MIME type automatically.
-+ 
-*:title* specifies the title of the link. The default value is the uppercase *:type* value, for example, "ATOM" or "RSS".
++ *:rel* specifies the *rel* value in the link. The default value is "alternate".
++ *:type* specifies an explicit MIME type. Rails will generate an appropriate MIME type automatically.
++ *:title* specifies the title of the link. The default value is the uppercase *:type* value, for example, "ATOM" or "RSS".
 
-###  3.1.2 Linking to JavaScript Files with the javascript_include_tag
-
+###  3.1.2 Linking to JavaScript Files with the *javascript_include_tag*
 
 The *javascript_include_tag* helper returns an HTML *script* tag for each source provided.
 
-If you are using Rails with the  enabled, this helper will generate a link to */assets/javascripts/* rather than *public/javascripts* which was used in earlier versions of Rails. This link is then served by the asset pipeline.
+If you are using Rails with the [Asset Pipeline](asset_pipeline.html) enabled, this helper will generate a link to */assets/javascripts/* rather than *public/javascripts* which was used in earlier versions of Rails. This link is then served by the asset pipeline.
 
-A JavaScript file within a Rails application or Rails engine goes in one of three locations: *app/assets*, *lib/assets* or *vendor/assets*. These locations are explained in detail in the 
+A JavaScript file within a Rails application or Rails engine goes in one of three locations: *app/assets*, *lib/assets* or *vendor/assets*. These locations are explained in detail in the [Asset Organization section in the Asset Pipeline Guide](asset_pipeline.html#asset-organization)
 
 You can specify a full path relative to the document root, or a URL, if you prefer. For example, to link to a JavaScript file that is inside a directory called *javascripts* inside of one of *app/assets*, *lib/assets* or *vendor/assets*, you would do this:
 
@@ -719,8 +691,7 @@ To include *http://example.com/main.js*:
 <%= javascript_include_tag "http://example.com/main.js" %>
 ```
 
-###  3.1.3 Linking to CSS Files with the stylesheet_link_tag
-
+###  3.1.3 Linking to CSS Files with the *stylesheet_link_tag*
 
 The *stylesheet_link_tag* helper returns an HTML *<link>* tag for each source provided.
 
@@ -756,8 +727,7 @@ By default, the *stylesheet_link_tag* creates links with *media="screen" rel="st
 <%= stylesheet_link_tag "main_print", media: "print" %>
 ```
 
-###  3.1.4 Linking to Images with the image_tag
-
+###  3.1.4 Linking to Images with the *image_tag*
 
 The *image_tag* helper builds an HTML *<img />* tag to the specified file. By default, files are loaded from *public/images*.
 
@@ -800,8 +770,7 @@ In addition to the above special tags, you can supply a final hash of standard H
                           class: "nav_bar" %>
 ```
 
-###  3.1.5 Linking to Videos with the video_tag
-
+###  3.1.5 Linking to Videos with the *video_tag*
 
 The *video_tag* helper builds an HTML 5 *<video>* tag to the specified file. By default, files are loaded from *public/videos*.
 
@@ -819,16 +788,11 @@ Like an *image_tag* you can supply a path, either absolute, or relative to the *
 
 The video tag also supports all of the *<video>* HTML options through the HTML options hash, including:
 
-+ 
-*poster: "image_name.png"*, provides an image to put in place of the video before it starts playing.
-+ 
-*autoplay: true*, starts playing the video on page load.
-+ 
-*loop: true*, loops the video once it gets to the end.
-+ 
-*controls: true*, provides browser supplied controls for the user to interact with the video.
-+ 
-*autobuffer: true*, the video will pre load the file for the user on page load.
++ *poster: "image_name.png"*, provides an image to put in place of the video before it starts playing.
++ *autoplay: true*, starts playing the video on page load.
++ *loop: true*, loops the video once it gets to the end.
++ *controls: true*, provides browser supplied controls for the user to interact with the video.
++ *autobuffer: true*, the video will pre load the file for the user on page load.
 
 You can also specify multiple videos to play by passing an array of videos to the *video_tag*:
 
@@ -842,8 +806,7 @@ This will produce:
 <video><source src="/videos/trailer.ogg" /><source src="/videos/trailer.flv" /></video>
 ```
 
-###  3.1.6 Linking to Audio Files with the audio_tag
-
+###  3.1.6 Linking to Audio Files with the *audio_tag*
 
 The *audio_tag* helper builds an HTML 5 *<audio>* tag to the specified file. By default, files are loaded from *public/audios*.
 
@@ -861,15 +824,11 @@ You can also supply a hash of additional options, such as *:id*, *:class* etc.
 
 Like the *video_tag*, the *audio_tag* has special options:
 
-+ 
-*autoplay: true*, starts playing the audio on page load
-+ 
-*controls: true*, provides browser supplied controls for the user to interact with the audio.
-+ 
-*autobuffer: true*, the audio will pre load the file for the user on page load.
++ *autoplay: true*, starts playing the audio on page load
++ *controls: true*, provides browser supplied controls for the user to interact with the audio.
++ *autobuffer: true*, the audio will pre load the file for the user on page load.
 
-##  3.2 Understanding yield
-
+##  3.2 Understanding *yield*
 
 Within the context of a layout, *yield* identifies a section where content from the view should be inserted. The simplest way to use this is to have a single *yield*, into which the entire contents of the view currently being rendered is inserted:
 
@@ -898,7 +857,7 @@ You can also create a layout with multiple yielding regions:
 
 The main body of the view will always render into the unnamed *yield*. To render content into a named *yield*, you use the *content_for* method.
 
-##  3.3 Using the content_for Method
+##  3.3 Using the *content_for* Method
 
 The *content_for* method allows you to insert content into a named *yield* block in your layout. For example, this view would work with the layout that you just saw:
 
@@ -981,17 +940,8 @@ Also note that explicitly specifying *:partial* is required when passing additio
 You can also pass local variables into partials, making them even more powerful and flexible. For example, you can use this technique to reduce duplication between new and edit pages, while still keeping a bit of distinct content:
 
 + 
-
-
-
 + 
-
-
-
 + 
-
-
-
 
 Although the same partial will be rendered into both views, Action View's submit helper will return "Create Zone" for the new action and "Update Zone" for the edit action.
 
@@ -1016,13 +966,7 @@ Assuming that the *@customer* instance variable contains an instance of the *Cus
 Partials are very useful in rendering collections. When you pass a collection to a partial via the *:collection* option, the partial will be inserted once for each member in the collection:
 
 + 
-
-
-
 + 
-
-
-
 
 When a partial is called with a pluralized collection, then the individual instances of the partial have access to the member of the collection being rendered via a variable named after the partial. In this case, the partial is *_product*, and within the *_product* partial, you can refer to *product* to get the instance that is being rendered.
 
@@ -1036,17 +980,8 @@ There is also a shorthand for this. Assuming *@products* is a collection of *pro
 Rails determines the name of the partial to use by looking at the model name in the collection. In fact, you can even create a heterogeneous collection and render it this way, and Rails will choose the proper partial for each member of the collection:
 
 + 
-
-
-
 + 
-
-
-
 + 
-
-
-
 
 In this case, Rails will use the customer or employee partials as appropriate for each member of the collection.
 
@@ -1106,15 +1041,9 @@ Suppose you have the following *ApplicationController* layout:
 
 + 
 
-
-
-
 On pages generated by *NewsController*, you want to hide the top menu and add a right menu:
 
 + 
-
-
-
 
 That's it. The News views will use the new layout, hiding the top menu and adding a new right menu inside the "content" div.
 
@@ -1122,30 +1051,21 @@ There are several ways of getting similar results with different sub-templating 
 
 # Feedback
 
+You're encouraged to help improve the quality of this guide.
 
-          You're encouraged to help improve the quality of this guide.
-        
+Please contribute if you see any typos or factual errors.
+          To get started, you can read our [documentation contributions](http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#contributing-to-the-rails-documentation) section.
 
-
-          Please contribute if you see any typos or factual errors.
-          To get started, you can read our  section.
-        
-
-
-          You may also find incomplete content, or stuff that is not up to date.
+You may also find incomplete content, or stuff that is not up to date.
           Please do add any missing documentation for master. Make sure to check
-           first to verify
+          [Edge Guides](http://edgeguides.rubyonrails.org) first to verify
           if the issues are already fixed or not on the master branch.
-          Check the 
+          Check the [Ruby on Rails Guides Guidelines](ruby_on_rails_guides_guidelines.html)
           for style and conventions.
-        
 
-
-          If for whatever reason you spot something to fix but cannot patch it yourself, please
-          .
-        
+If for whatever reason you spot something to fix but cannot patch it yourself, please
+          [open an issue](https://github.com/rails/rails/issues).
 
 And last but not least, any kind of discussion regarding Ruby on Rails
-          documentation is very welcome in the .
-        
+          documentation is very welcome in the [rubyonrails-docs mailing list](http://groups.google.com/group/rubyonrails-docs).
 

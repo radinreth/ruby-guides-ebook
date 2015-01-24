@@ -4,6 +4,9 @@ require './ebook_parser'
 
 parser = EbookParser.new 'http://guides.rubyonrails.org/layouts_and_rendering.html'
 
+print "Create file..."
+parser.create_file parser.get_title
+puts "done."
 
 print 'Make header....'
 parser.make_header
