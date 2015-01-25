@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'uri'
+require 'net/http'
+require 'fileutils'
 
 class EbookParser
   attr_reader :url
@@ -12,7 +15,6 @@ class EbookParser
 
   def create_file name
     @f = File.new(name.gsub(' ', '_').downcase + '.md', 'w+')
-    write "Autocreated at #{Time.now.to_s}\n\n"
   end
 
   def get_title
@@ -147,17 +149,39 @@ class EbookParser
     result = ''
     txt.children.each do |child|
       result += child.text if child.name == 'text'
-      result += "*#{child.text}*" if child.name == 'code'
+      result += "`#{child.text}`" if child.name == 'code'
       result += "[#{child.text.strip}](#{child.attr(:href)})" if child.name == 'a'
 
       result += "#{process_text child}\n\n" if child.name == 'p'
-      # result += "#{process_code child}\n\n" if child.name == 'div' && child.attr(:class) == 'code_container'
-      if child.name == 'div' && child.attr(:class) == 'code_container'
-        result += "#{process_code child}\n\n"
-      end
+      result += "#{process_code child}\n\n" if child.name == 'div' && child.attr(:class) == 'code_container'
+
+      result += "#{process_img child}" if child.name == 'img'
     end
 
     result.strip
+  end
+
+  def process_img node
+    alt = node.attr(:alt)
+
+    uri = URI.parse @url
+
+    # check if directory is exist
+    src = node.attr(:src)
+    dirname = File.dirname(src)
+    unless File.directory?(dirname)
+      FileUtils.mkdir_p dirname
+    end
+
+    Net::HTTP.start(uri.host) do |http|
+      resp = http.get('/' + src)
+      open(src, "wb") do |file|
+        file.write(resp.body)
+      end
+    end
+
+    # "![#{alt.nil? ? 'empty' : alt}](#{src})"
+    "![](#{src})"
   end
 
   def process_code node

@@ -2,7 +2,8 @@
 
 require './ebook_parser'
 
-parser = EbookParser.new 'http://guides.rubyonrails.org/layouts_and_rendering.html'
+# parser = EbookParser.new 'http://guides.rubyonrails.org/layouts_and_rendering.html'
+parser = EbookParser.new 'http://guides.rubyonrails.org/association_basics.html'
 
 print "Create file..."
 parser.create_file parser.get_title
