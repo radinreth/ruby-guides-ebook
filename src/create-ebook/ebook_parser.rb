@@ -51,6 +51,16 @@ class EbookParser
     # end
   end
 
+  def create_bat name
+    name = name.gsub(' ', '_').downcase
+    bat = File.new(name + '.bat', 'w+')
+
+    bat.write "..\\..\\..\\tools\Pandoc\pandoc.exe --css '..\\..\\..\\styles\\tables.css' -o #{name}.epub #{name}.md\n\n"
+    bat.write "..\\..\\..\\tools\\calibre\\ebook-convert.exe #{name}.epub #{name}.mobi\n\n"
+    bat.write "..\\..\\..\\tools\\calibre\\ebook-convert.exe #{name}.epub #{name}.pdf\n\n"
+    bat.write 'pause'
+  end
+
   private
   def process node
     #return if node.text.empty?

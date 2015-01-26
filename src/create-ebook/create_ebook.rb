@@ -17,5 +17,8 @@ print 'Make body...'
 parser.make_body
 puts 'done.'
 
+print "Create .bat file..."
+parser.create_bat parser.get_title
+puts 'done.'
 
 puts 'Everything is done.'
