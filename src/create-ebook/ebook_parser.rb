@@ -14,7 +14,11 @@ class EbookParser
   end
 
   def create_file name
-    @f = File.new(name.gsub(' ', '_').downcase + '.md', 'w+')
+    path = name.gsub(' ', '_').downcase
+    @dir = File.dirname(path)
+    FileUtils.mkdir_p @dir
+
+    @f = File.new(path + '.md', 'w+')
   end
 
   def get_title
@@ -22,15 +26,25 @@ class EbookParser
   end
 
   def make_header
+    # create title block
+    write "---\n"
+    write "title: #{get_title}\n"
+    write "author: Ruby on Rails\n"
+    write "rights: Creative Commons Attribution-ShareAlike 4.0 International\n"
+    write "language: en-US\n"
+    write "...\n\n"
+
     feature = @page.css('div#feature')[0].css('.wrapper')
 
     write "# #{get_title}\n\n"
-    write feature.css('p')[0].text + "\n"
-    write feature.css('p')[1].text + "\n\n"
+    write feature.css('p')[0].text + "\n" unless feature.css('p')[0].nil?
+    write feature.css('p')[1].text + "\n\n" unless feature.css('p')[1].nil?
 
-    lis = feature.css('ul')[0].css('li')
-    lis.each do |li|
-      write "+ #{li.text}\n"
+    unless feature.css('ul')[0].nil?
+      lis = feature.css('ul')[0].css('li')
+      lis.each do |li|
+        write "+ #{li.text}\n"
+      end
     end
 
     write "\n\n"
@@ -39,78 +53,26 @@ class EbookParser
   def make_body
     body = @page.css('#mainCol')
 
-    # old variant
     body.children.each do |node|
       process_node node
     end
-
-    # new variant
-    # body.children.each do |node| # first hierarchy
-    #   process node
-    #   puts node.name
-    # end
   end
 
   def create_bat name
-    name = name.gsub(' ', '_').downcase
-    bat = File.new(name + '.bat', 'w+')
+    name = name.gsub(' ', '_').downcase + '.bat'
+    bat = File.new(name, 'w+')
 
-    bat.write "..\\..\\..\\tools\Pandoc\pandoc.exe --css '..\\..\\..\\styles\\tables.css' -o #{name}.epub #{name}.md\n\n"
-    bat.write "..\\..\\..\\tools\\calibre\\ebook-convert.exe #{name}.epub #{name}.mobi\n\n"
-    bat.write "..\\..\\..\\tools\\calibre\\ebook-convert.exe #{name}.epub #{name}.pdf\n\n"
+    filename = File.basename name, File.extname(name)
+
+    bat.write "..\\..\\..\\..\\..\\tools\\Pandoc\\pandoc.exe --css '..\\..\\..\\..\\..\\styles\\tables.css' -o #{filename}.epub #{filename}.md\n\n"
+    bat.write "..\\..\\..\\..\\..\\tools\\calibre\\ebook-convert.exe #{filename}.epub #{filename}.mobi\n\n"
+    bat.write "..\\..\\..\\..\\..\\tools\\calibre\\ebook-convert.exe #{filename}.epub #{filename}.pdf\n\n"
     bat.write 'pause'
+
+    name
   end
 
   private
-  def process node
-    #return if node.text.empty?
-    return @f.write node.text if node.name == 'text' && (not node.text.strip.empty?)
-
-    # before
-    case node.name
-      when 'h3'
-        @f.write "\n\n# "
-      when 'h4'
-        @f.write "\n\n## "
-      when 'h5'
-        @f.write "\n\n### "
-      when 'h6'
-        @f.write "\n\n#### "
-      when 'li'
-        @f.write "\n+ "
-      when 'code'
-        @f.write '*'
-      when 'ul'
-        @f.write "\n"
-      when 'p'
-        @f.write "\n\n"
-    end
-
-    # process children
-    node.children.each do |child|
-      process child
-    end
-
-    # after
-    # case node.name
-    #   when 'h3', 'h4', 'h5', 'h6', 'p'
-    #     @f.write "\n\n"
-    #   when 'li'
-    #     @f.write "\n"
-    #   when 'code'
-    #     @f.write '* '
-    # end
-
-    # if node.name == 'h3'
-    #   @f.write '#'
-    #   node.children.each do |child|
-    #     process child
-    #   end
-    #   @f.write "\n\n"
-    # end
-
-  end
-
   def process_node node
     #return if node.text.empty?
 
@@ -177,21 +139,21 @@ class EbookParser
     uri = URI.parse @url
 
     # check if directory is exist
-    src = node.attr(:src)
+    src = File.join(@dir, node.attr(:src))
     dirname = File.dirname(src)
     unless File.directory?(dirname)
       FileUtils.mkdir_p dirname
     end
 
     Net::HTTP.start(uri.host) do |http|
-      resp = http.get('/' + src)
+      resp = http.get('/' + node.attr(:src))
       open(src, "wb") do |file|
         file.write(resp.body)
       end
     end
 
     # "![#{alt.nil? ? 'empty' : alt}](#{src})"
-    "![](#{src})"
+    "![](#{node.attr(:src)})"
   end
 
   def process_code node
@@ -225,7 +187,7 @@ class EbookParser
     ths.each do |th|
       result += " #{th.text} |"
     end
-    result += "\n"
+    result += "\n| ------------- | -------------- |\n"
 
     trs = node.css('tbody').css('tr')
     trs.each do |tr|
